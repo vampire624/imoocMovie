@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      form.form-horizontal(method="post",action="../category")
+        .form-group
+          label.col-sm-2.control-label(for="inputCategory") 电影分类
+          .col-sm-10
+            input#inputCategory.form-control(type="text",name="category[name]",value=category.name)
+            //- 这里的value 做了处理，原本为空对象，为undefined类型，value="#{category.name}" 变为value=category.name jade会将其undefined值 渲染为不显示
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-info(type="submit") 录入
